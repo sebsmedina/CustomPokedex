@@ -1,1 +1,1 @@
-!pip install tensorflow keras streamlit groq pillow numpy
+pip install tensorflow keras streamlit groq pillow numpy
