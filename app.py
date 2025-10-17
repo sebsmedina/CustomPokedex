@@ -98,7 +98,7 @@ if uploaded_file is not None:
     st.write("Identifica al Pokémon presionando el botón debajo...")
 
     # Realizar la predicción al presionar un botón
-    if st.button('Identificar Pokémon'):
+    if st.button('¿Quién es ese Pokémon?'):
         pokemon_name, confidence = predict_pokemon(image)
         st.session_state.pokemon_name = pokemon_name # Guardar el nombre en el estado de la sesión
         st.success(f"¡Pokémon identificado! Es un **{pokemon_name}** con una confianza del {confidence:.2f}%.")
