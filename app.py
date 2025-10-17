@@ -68,7 +68,7 @@ def get_pokemon_info(pokemon_name, user_question):
     Pregunta: "{user_question}"
     """
     try:
-        chat_completion = client.chat.completions.create(                       # client.chat.completions.create() Version Ant.
+        chat_completion = client.chat.completions.create(
             model="llama-3.3-70b-versatile", # Usamos un modelo de Groq
             messages=[
                 {"role": "system", "content": "Eres una Pokédex experta."},
@@ -88,14 +88,14 @@ st.write("¡Sube la imagen de un Pokémon y haz una pregunta sobre él!")
 
 
 # Carga de la imagen por parte del usuario
-uploaded_file = st.file_uploader("Elige una imagen de un Pokémon...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Elige una imagen de un Pokémon...", type=["jpg"])
 
 if uploaded_file is not None:
     # Mostrar la imagen cargada
     image = Image.open(uploaded_file)
-    st.image(image, caption='Imagen cargada.', use_container_width=True)
+    st.image(image, caption='Imagen cargada!', use_container_width=False)
     st.write("")
-    st.write("Identifican al Pokémon presionando el botón debajo...")
+    st.write("Identifica al Pokémon presionando el botón debajo...")
 
     # Realizar la predicción al presionar un botón
     if st.button('Identificar Pokémon'):
@@ -106,7 +106,7 @@ if uploaded_file is not None:
 # Sección para preguntas y respuestas
 if 'pokemon_name' in st.session_state:
     st.header(f"Pregúntale a la Pokédex sobre {st.session_state.pokemon_name}")
-    user_question = st.text_input("Ej: ¿Cuáles son sus evoluciones?", key="question_input")
+    user_question = st.text_input("Ej: ¿Cuál es son su evolución?", key="question_input")
 
     if st.button("Obtener Respuesta"):
         if user_question:
@@ -114,4 +114,4 @@ if 'pokemon_name' in st.session_state:
                 answer = get_pokemon_info(st.session_state.pokemon_name, user_question)
                 st.write(answer)
         else:
-            st.warning("Por favor, escribe una pregunta.")
+            st.warning("Por favor, escribe una pregunta:")
