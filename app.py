@@ -13,13 +13,13 @@ from groq import Groq # CAMBIO: Importamos Groq en lugar de OpenAI
 # o proporciona la ruta completa.
 @st.cache_resource # Cachear el modelo para que no se cargue cada vez
 def load_prediction_model():
-    model = tf.keras.models.load_model(r'C:\Users\asmed\Documents\Técnicatura Ciencia de Datos e IA\Proces. de Aprendizaje Automático\Proyectos\Proyecto N° 2\pokedex_model.h5')
+    model = tf.keras.models.load_model(r'/pokedex_model.h5')
     return model
 
 # Cargar los nombres de las clases (los Pokémon)
 @st.cache_data
 def load_class_names():
-    class_names = np.load(r'C:\Users\asmed\Documents\Técnicatura Ciencia de Datos e IA\Proces. de Aprendizaje Automático\Proyectos\Proyecto N° 2\pokemon_class_names.npy', allow_pickle=True)
+    class_names = np.load(r'/pokemon_class_names.npy', allow_pickle=True)
     return class_names
 
 model = load_prediction_model()
